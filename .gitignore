@@ -1,0 +1,47 @@
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## Build results
+bin/
+obj/
+out/
+
+## Rider's logs and system files
+.idea/.idea.*
+.idea/.name
+.idea/.rider.*
+.idea/modules.xml
+.idea/workspace.xml
+.idea/tasks.xml
+
+## User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Auto-generated files
+Generated_Code/
+
+## Packages
+*.nupkg
+*.snupkg
+packages/
+*.symbols.nupkg
+
+## DotCover
+*.dcvr
+
+## Rider & Resharper cache
+.ReSharper*/
+*_Resharper*/
+
+## Logs
+*.log
+
+## Others
+.vs/
+TestResults/
+*.vspscc
+*.vssscc
