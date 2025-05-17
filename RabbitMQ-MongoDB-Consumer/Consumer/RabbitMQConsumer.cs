@@ -10,7 +10,7 @@ using SignalRHub;
 
 namespace RabbitMQ_MongoDB_Consumer;
 
-public class ServerStatisticsConsumer
+public class RabbitMQConsumer : IRabbitMqConsumer
 {
     private readonly IMongoCollection<ServerStatistics> _collection;
 
@@ -33,7 +33,7 @@ public class ServerStatisticsConsumer
     private double _previousMemoryUsage;
 
 
-    public ServerStatisticsConsumer(IHubContext<AlertHub> hubContext, IConfiguration configuration,
+    public RabbitMQConsumer(IHubContext<AlertHub> hubContext, IConfiguration configuration,
         IMongoClient mongoClient)
     {
         var databaseName = configuration["ServerStatisticsConfig:DatabaseName"];

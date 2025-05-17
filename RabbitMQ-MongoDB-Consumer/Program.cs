@@ -22,7 +22,7 @@ services.AddLogging(builder =>
 
 services.AddSignalR();
 
-services.AddSingleton<ServerStatisticsConsumer>();
+services.AddSingleton<RabbitMQConsumer>();
 
 var serviceProvider = services.BuildServiceProvider();
 
@@ -32,6 +32,6 @@ var connectionString = Environment.GetEnvironmentVariable("SERVER_STATISTICS_MON
 
 var mongoClient = new MongoClient(connectionString);
 
-var consumer = new ServerStatisticsConsumer(hubContext, configuration, mongoClient);
+var consumer = new RabbitMQConsumer(hubContext, configuration, mongoClient);
 
 await consumer.StartConsumingAsync();
