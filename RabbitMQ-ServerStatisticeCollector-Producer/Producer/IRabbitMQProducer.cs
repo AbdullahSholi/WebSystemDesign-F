@@ -1,4 +1,4 @@
-﻿namespace WebSystemDesign_F.RabbitMQ.Producer;
+﻿namespace WebSystemDesign_F.Producer;
 
 public interface IRabbitMqProducer : IMessageQueue
 {

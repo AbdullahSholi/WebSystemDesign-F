@@ -1,7 +1,7 @@
 ﻿using System.Management;
 using Microsoft.Extensions.Configuration;
 using WebSystemDesign_F.Models;
-using WebSystemDesign_F.RabbitMQ.Producer;
+using WebSystemDesign_F.Producer;
 
 namespace WebSystemDesign_F;
 
