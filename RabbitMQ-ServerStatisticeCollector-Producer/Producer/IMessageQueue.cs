@@ -1,4 +1,4 @@
-﻿namespace WebSystemDesign_F;
+﻿namespace WebSystemDesign_F.Producer;
 
 public interface IMessageQueue
 {
