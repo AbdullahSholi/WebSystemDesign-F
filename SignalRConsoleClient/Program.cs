@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using SignalRConsoleClient;
 
-var alertHubUrl = "http://localhost:5069/alerthub";
+var alertHubUrl = "http://signalr-server:8080/alerthub";
 var connection = new HubConnectionBuilder()
     .WithUrl(alertHubUrl)
     .WithAutomaticReconnect()
@@ -24,5 +24,5 @@ catch (Exception ex)
 }
 
 Console.WriteLine(CustomMessages.ListeningForAlerts);
-Console.ReadKey();
+await Task.Delay(Timeout.Infinite);
 await connection.StopAsync();

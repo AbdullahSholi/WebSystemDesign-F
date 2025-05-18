@@ -1,0 +1,68 @@
+services:
+  server-statistics-collector:
+    build:
+      context: .
+      dockerfile: RabbitMQ-ServerStatisticeCollector-Producer/Dockerfile
+    ports:
+      - "5001:80"
+    networks:
+      - backend
+
+  mongodb-consumer:
+    build:
+      context: .
+      dockerfile: RabbitMQ-MongoDB-Consumer/Dockerfile
+    ports:
+      - "5002:80"
+    networks:
+      - backend
+    environment:
+        SERVER_STATISTICS_MONGODB_CONNECTION_STRING: "mongodb+srv://groupgroup00003:Sholi%40971@cluster0.emalawk.mongodb.net/ServerStatistics-F"
+    depends_on:
+      - rabbitmq
+      - server-statistics-collector
+
+  signalr-server:
+    build:
+        context: .
+        dockerfile: SignalRHub/Dockerfile
+    ports:
+        - "5003:8080"
+    container_name: signalrhub
+    depends_on:
+        - rabbitmq
+    environment:
+        - RabbitMq__HostName=rabbitmq  
+    networks:
+        - backend
+
+
+  signalr-client:
+    build:
+      context: .
+      dockerfile: SignalRConsoleClient/Dockerfile
+    ports:
+      - "5004:80"
+    depends_on:
+        - rabbitmq
+        - signalr-server
+        - mongodb-consumer
+    networks:
+      - backend
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitmq
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+    environment:
+        RABBITMQ_DEFAULT_USER: guest
+        RABBITMQ_DEFAULT_PASS: guest
+    container_name: rabbitmq
+    networks:
+        - backend
+
+
+networks:
+  backend:

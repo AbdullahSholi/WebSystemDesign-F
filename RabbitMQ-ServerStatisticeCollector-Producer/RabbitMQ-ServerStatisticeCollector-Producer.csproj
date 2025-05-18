@@ -6,6 +6,7 @@
         <RootNamespace>WebSystemDesign_F</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,6 +17,12 @@
         <PackageReference Include="RabbitMQ.Client" Version="7.1.2"/>
         <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="9.0.4"/>
         <PackageReference Include="System.Management" Version="9.0.4"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
 </Project>
