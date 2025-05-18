@@ -11,4 +11,16 @@
         <PackageReference Include="RabbitMQ.Client" Version="7.1.2"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 </Project>

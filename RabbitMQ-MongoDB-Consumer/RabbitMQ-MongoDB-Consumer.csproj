@@ -6,6 +6,7 @@
         <RootNamespace>RabbitMQ_MongoDB_Consumer</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -23,7 +24,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\SignalRHub\SignalRHub.csproj"/>
+        <ProjectReference Include="..\SignalRHub\SignalRHub.csproj">
+            <Private>true</Private>
+            <ExcludeAssets>runtime;contentFiles</ExcludeAssets>
+        </ProjectReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
 </Project>

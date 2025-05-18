@@ -120,7 +120,7 @@ public class RabbitMQConsumer : IRabbitMqConsumer
 
         await channel.BasicConsumeAsync(_queueName, _queueAutoAck, consumer);
         Console.WriteLine(CustomMessages.ExitMessage);
-        Console.ReadKey();
+        await Task.Delay(Timeout.Infinite);
     }
 
     private async Task MemoryUsageAnomalyAlert(double currentMemoryUsage, ServerStatistics statistics)

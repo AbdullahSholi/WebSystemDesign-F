@@ -22,7 +22,7 @@ public class RabbitMqListener
     public RabbitMqListener(IHubContext<AlertHub> hubContext, IConfiguration configuration)
     {
         _hubContext = hubContext;
-        _hostName = configuration["RabbitMQ:HostName"] ?? "localhost";
+        _hostName = configuration["RabbitMQ:HostName"] ?? "rabbitmq";
         _userName = configuration["RabbitMQ:UserName"] ?? "guest";
         _password = configuration["RabbitMQ:Password"] ?? "guest";
         _queueName = configuration["RabbitMQ:QueueName"] ?? "ServerStatistics";

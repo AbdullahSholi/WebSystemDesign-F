@@ -23,7 +23,7 @@ public class RabbitMqProducer : IRabbitMqProducer
         _queueName = configuration["ServerStatisticsConfig:QueueName"] ?? "ServerStatistics";
         _exchangeName = configuration["ServerStatisticsConfig:ExchangeName"] ?? "server_statistics_topic_exchange";
         _serverIdentifier = configuration["ServerStatisticsConfig:ServerIdentifier"] ?? "linux1";
-        _hostName = configuration["RabbitMQ:HostName"] ?? "localhost";
+        _hostName = configuration["RabbitMQ:HostName"] ?? "rabbitmq";
         _userName = configuration["RabbitMQ:UserName"] ?? "guest";
         _password = configuration["RabbitMQ:Password"] ?? "guest";
         _port = int.Parse(configuration["RabbitMQ:Port"] ?? "5672");
